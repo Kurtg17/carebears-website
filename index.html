@@ -394,10 +394,12 @@ footer a{font-weight:800;text-underline-offset:3px}
 .meet .txt .label{color:#c8102e}
 .meet .txt p{color:var(--muted);font-size:19px;max-width:48ch}
 .story-photo{width:100%;max-width:360px;aspect-ratio:4/5;object-fit:cover;object-position:50% 60%;border-radius:12px;display:block}
-.sleigh{position:absolute;top:-4px;left:0;width:280px;height:auto;pointer-events:none;z-index:0;animation:fly 26s linear infinite;will-change:transform}
+.sleigh{position:absolute;top:-4px;left:0;width:340px;height:auto;pointer-events:none;z-index:0;animation:fly 26s linear infinite;will-change:transform}
 @keyframes fly{0%{transform:translate(-320px,18px) rotate(-4deg)}25%{transform:translate(25vw,4px) rotate(-2deg)}50%{transform:translate(50vw,12px) rotate(0)}75%{transform:translate(75vw,0) rotate(-3deg)}100%{transform:translate(calc(100vw + 40px),-8px) rotate(-5deg)}}
-@media (max-width:700px){.sleigh{width:200px;top:4px}}
-@media (prefers-reduced-motion: reduce){.sleigh{animation:none;left:auto;right:16px;transform:none}}
+@media (max-width:700px){.sleigh{width:240px;top:4px}}
+.lantern-glow{animation:flicker 1.8s ease-in-out infinite;transform-origin:130px 13px}
+@keyframes flicker{50%{opacity:.12}}
+@media (prefers-reduced-motion: reduce){.lantern-glow{animation:none}.sleigh{animation:none;left:auto;right:16px;transform:none}}
 .toy-share-sec{background:var(--bg);padding-top:0}
 .xshare{position:relative;overflow:hidden;padding-top:calc(clamp(22px, 3.5vw, 32px) + 6px)}
 .xshare::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;background:repeating-linear-gradient(-45deg,#c8102e 0 12px,#fff 12px 24px)}
@@ -786,9 +788,9 @@ footer a{font-weight:800;text-underline-offset:3px}
 <div id="page-toys" class="xmas" hidden>
   <section class="sec toys toy-hero" id="toys">
     <canvas class="snow" id="snow" aria-hidden="true"></canvas>
-    <svg class="sleigh" viewBox="0 -18 320 84" aria-hidden="true">
-  <path d="M98 20 Q160 8 222 34 M98 20 Q200 2 282 28" stroke="#ffcf33" stroke-width="1.5" fill="none"/>
-  <g transform="translate(190,24)"><circle cx="1" cy="11" r="3" fill="#fbe7cf"/><ellipse cx="18" cy="14" rx="18" ry="8" fill="#a46a36"/><path d="M6 20 l-8 6 M12 21 l-4 8 M26 20 l8 5 M30 19 l6 8" stroke="#a46a36" stroke-width="3" stroke-linecap="round"/><path d="M31 11 l9 -10" stroke="#a46a36" stroke-width="6" stroke-linecap="round"/><ellipse cx="43" cy="-2" rx="7.5" ry="5" fill="#a46a36"/><circle cx="50" cy="-1" r="2" fill="#2a1d14"/><path d="M40 -6 l-3 -9 M37 -11 l-5 -2 M42 -6 l4 -9 M45 -12 l4 -1" stroke="#e3c08f" stroke-width="2" fill="none" stroke-linecap="round"/></g><g transform="translate(250,18)"><circle cx="1" cy="11" r="3" fill="#fbe7cf"/><ellipse cx="18" cy="14" rx="18" ry="8" fill="#a46a36"/><path d="M6 20 l-8 6 M12 21 l-4 8 M26 20 l8 5 M30 19 l6 8" stroke="#a46a36" stroke-width="3" stroke-linecap="round"/><path d="M31 11 l9 -10" stroke="#a46a36" stroke-width="6" stroke-linecap="round"/><ellipse cx="43" cy="-2" rx="7.5" ry="5" fill="#a46a36"/><circle cx="50" cy="-1" r="2" fill="#2a1d14"/><path d="M40 -6 l-3 -9 M37 -11 l-5 -2 M42 -6 l4 -9 M45 -12 l4 -1" stroke="#e3c08f" stroke-width="2" fill="none" stroke-linecap="round"/></g>
+    <svg class="sleigh" viewBox="0 -18 380 84" aria-hidden="true">
+  <path d="M98 20 Q160 8 222 34 M98 20 Q200 2 282 28 M98 20 Q240 -4 342 22" stroke="#ffcf33" stroke-width="1.5" fill="none"/>
+  <g transform="translate(190,24)"><circle cx="1" cy="11" r="3" fill="#fbe7cf"/><ellipse cx="18" cy="14" rx="18" ry="8" fill="#a46a36"/><path d="M6 20 l-8 6 M12 21 l-4 8 M26 20 l8 5 M30 19 l6 8" stroke="#a46a36" stroke-width="3" stroke-linecap="round"/><path d="M31 11 l9 -10" stroke="#a46a36" stroke-width="6" stroke-linecap="round"/><ellipse cx="43" cy="-2" rx="7.5" ry="5" fill="#a46a36"/><circle cx="50" cy="-1" r="2" fill="#2a1d14"/><path d="M40 -6 l-3 -9 M37 -11 l-5 -2 M42 -6 l4 -9 M45 -12 l4 -1" stroke="#e3c08f" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M8 8 q14 8 26 2" stroke="#c8102e" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="14" cy="11.5" r="2.4" fill="#ffcf33"/><circle cx="21" cy="12.5" r="2.4" fill="#ffcf33"/><circle cx="28" cy="11" r="2.4" fill="#ffcf33"/></g><g transform="translate(250,18)"><circle cx="1" cy="11" r="3" fill="#fbe7cf"/><ellipse cx="18" cy="14" rx="18" ry="8" fill="#a46a36"/><path d="M6 20 l-8 6 M12 21 l-4 8 M26 20 l8 5 M30 19 l6 8" stroke="#a46a36" stroke-width="3" stroke-linecap="round"/><path d="M31 11 l9 -10" stroke="#a46a36" stroke-width="6" stroke-linecap="round"/><ellipse cx="43" cy="-2" rx="7.5" ry="5" fill="#a46a36"/><circle cx="50" cy="-1" r="2" fill="#2a1d14"/><path d="M40 -6 l-3 -9 M37 -11 l-5 -2 M42 -6 l4 -9 M45 -12 l4 -1" stroke="#e3c08f" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M8 8 q14 8 26 2" stroke="#c8102e" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="14" cy="11.5" r="2.4" fill="#ffcf33"/><circle cx="21" cy="12.5" r="2.4" fill="#ffcf33"/><circle cx="28" cy="11" r="2.4" fill="#ffcf33"/></g><g transform="translate(310,12)"><circle cx="1" cy="11" r="3" fill="#fbe7cf"/><ellipse cx="18" cy="14" rx="18" ry="8" fill="#a46a36"/><path d="M6 20 l-8 6 M12 21 l-4 8 M26 20 l8 5 M30 19 l6 8" stroke="#a46a36" stroke-width="3" stroke-linecap="round"/><path d="M31 11 l9 -10" stroke="#a46a36" stroke-width="6" stroke-linecap="round"/><ellipse cx="43" cy="-2" rx="7.5" ry="5" fill="#a46a36"/><circle cx="50" cy="-1" r="2" fill="#2a1d14"/><path d="M40 -6 l-3 -9 M37 -11 l-5 -2 M42 -6 l4 -9 M45 -12 l4 -1" stroke="#e3c08f" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M8 8 q14 8 26 2" stroke="#c8102e" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="14" cy="11.5" r="2.4" fill="#ffcf33"/><circle cx="21" cy="12.5" r="2.4" fill="#ffcf33"/><circle cx="28" cy="11" r="2.4" fill="#ffcf33"/></g>
   <path d="M30 30 q-4 -22 14 -24 q14 2 10 24z" fill="#a0703c"/><path d="M38 8 q6 -4 12 0" stroke="#7a5229" stroke-width="2" fill="none"/>
   <path d="M60 30 q2 -22 18 -22 q14 0 16 22z" fill="#c8102e"/><path d="M88 20 l12 -2" stroke="#c8102e" stroke-width="5" stroke-linecap="round"/>
   <circle cx="80" cy="3" r="7" fill="#f2c7a5"/><path d="M73 5 q7 13 14 0z" fill="#ffffff"/>
@@ -796,6 +798,9 @@ footer a{font-weight:800;text-underline-offset:3px}
   <path d="M22 30 h78 l8 -14 h8 l-8 22 q-3 8 -12 8 h-66 q-12 0 -14 -16z" fill="#c8102e"/>
   <path d="M30 36 h64" stroke="#ffcf33" stroke-width="2" opacity=".8"/>
   <path d="M34 46 v9 M88 46 v9" stroke="#ffcf33" stroke-width="3"/><path d="M12 56 h98 q12 0 14 -9" stroke="#ffcf33" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M114 17 q4 -14 16 -14" stroke="#6b4226" stroke-width="2.5" fill="none" stroke-linecap="round"/><path d="M130 3 v4" stroke="#6b4226" stroke-width="1.5"/>
+  <circle class="lantern-glow" cx="130" cy="13" r="15" fill="#ffcf33" opacity=".28"/>
+  <rect x="125.5" y="7" width="9" height="12" rx="2" fill="#ffe7a1" stroke="#c99a1c" stroke-width="1.6"/><path d="M124 7 h12 M124 19 h12" stroke="#c99a1c" stroke-width="2" stroke-linecap="round"/>
 </svg>
     <div class="in">
       <div class="toy-top">
