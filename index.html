@@ -385,6 +385,15 @@ footer a{font-weight:800;text-underline-offset:3px}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .stop.gift strong{color:#5cc489}}
 :root[data-theme="dark"] .stop.gift strong{color:#5cc489}
 @media (max-width:760px){.track{grid-template-columns:22px 1fr;gap:18px}.rail{width:10px;height:auto;margin-left:6px}.rail i{width:100%!important;height:var(--fill,0%);bottom:auto}.rail b{left:50%;margin-left:-7px;top:var(--at)}.today{left:50%!important;top:var(--fill,0%)}.today em{bottom:26px;left:-6px;top:auto;transform:none}.track{padding-top:36px}.stops{grid-template-columns:1fr;gap:26px}}
+.meet{display:grid;grid-template-columns:1fr;gap:32px;align-items:center}
+@media (min-width:860px){.meet{grid-template-columns:.8fr 1.2fr;gap:64px}}
+.meet figure{margin:0;display:grid;gap:10px;justify-items:center}
+.meet img{width:100%;max-width:420px;aspect-ratio:3/4;object-fit:cover;object-position:50% 50%;border-radius:12px;box-shadow:0 14px 34px rgba(0,0,0,.18);display:block}
+.meet figcaption{font-size:14px;color:var(--muted)}
+.meet .txt{display:grid;gap:16px;min-width:0}
+.meet .txt .label{color:#c8102e}
+.meet .txt p{color:var(--muted);font-size:19px;max-width:48ch}
+.story-photo{width:100%;max-width:360px;aspect-ratio:4/5;object-fit:cover;object-position:50% 60%;border-radius:12px;display:block}
 .toy-share-sec{background:var(--bg);padding-top:0}
 .xshare{position:relative;overflow:hidden;padding-top:calc(clamp(22px, 3.5vw, 32px) + 6px)}
 .xshare::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;background:repeating-linear-gradient(-45deg,#c8102e 0 12px,#fff 12px 24px)}
@@ -508,6 +517,7 @@ footer a{font-weight:800;text-underline-offset:3px}
       <div class="story-side">
         <span class="label">My story</span>
         <h2 class="h2">Why I started The Care Bears</h2>
+        <img class="story-photo" src="doug-steve.jpg" alt="Doug Laking and Steve Uba standing together on a country road in the fall" loading="lazy">
         <p class="big-quote">This community raised me, and I've always believed in giving back to it.</p>
         <a class="btn btn-dark js-give" href="#" target="_blank" rel="noopener" style="justify-self:start">Donate on GoFundMe</a>
       </div>
@@ -840,6 +850,20 @@ footer a{font-weight:800;text-underline-offset:3px}
       </div>
     </div>
   </section>
+  <section class="sec" id="toy-meet" style="padding-top:0">
+    <div class="in meet">
+      <figure>
+        <img src="doug-steve.jpg" alt="Doug Laking and Steve Uba, the organizers of The Care Bears, standing together on a country road in the fall" loading="lazy">
+        <figcaption>Doug Laking &amp; Steve Uba</figcaption>
+      </figure>
+      <div class="txt">
+        <span class="label">Meet the organizers</span>
+        <h2 class="h2">Doug &amp; Steve</h2>
+        <p>Two Cambridge neighbours who want every local kid to have something to open on Christmas morning. They're running this toy drive themselves, and every toy they buy goes straight to the Cambridge Salvation Army.</p>
+        <div class="btns"><a class="btn btn-gold js-toygive" href="#" target="_blank" rel="noopener">Donate to the toy drive</a></div>
+      </div>
+    </div>
+  </section>
   <div class="cane" aria-hidden="true"></div>
   <section class="sec gifts-sec" id="toy-gifts">
     <div class="in">
@@ -958,7 +982,7 @@ const TOY_START = "2026-11-06", TOY_END = "2026-12-01";
   const dockText = document.querySelector(".dock span");
   const tH = document.getElementById("tab-home"), tT = document.getElementById("tab-toys");
   function route(){
-    const toyIds = ["toy-drive","toys","toy-plan","toy-gifts","toy-share","toy-faq"];
+    const toyIds = ["toy-drive","toys","toy-plan","toy-meet","toy-gifts","toy-share","toy-faq"];
     const id = location.hash.slice(1);
     const onToys = toyIds.includes(id) || (id === "" ? true : !!(document.getElementById(id) && document.getElementById("page-toys").contains(document.getElementById(id))));
     home.hidden = onToys; toys.hidden = !onToys;
