@@ -456,11 +456,11 @@ footer a{font-weight:800;text-underline-offset:3px}
       <a class="msg-doug" href="https://www.facebook.com/share/19pQ5hTmtZ/" target="_blank" rel="noopener" aria-label="Message Doug on Facebook"><b aria-hidden="true">f</b><span class="long">Message Doug</span><span class="short">Doug</span></a>
       <a class="msg-doug" href="https://www.facebook.com/steve.uba.50" target="_blank" rel="noopener" aria-label="Message Steve on Facebook"><b aria-hidden="true">f</b><span class="long">Message Steve</span><span class="short">Steve</span></a>
     </div>
-    <a class="btn btn-gold js-give" href="#" target="_blank" rel="noopener">Donate</a>
+    <a class="btn btn-gold js-toygive" href="#" target="_blank" rel="noopener">Donate</a>
   </div>
   <div class="tabs" role="tablist" aria-label="Fundraisers">
     <a role="tab" href="#toy-drive" id="tab-toys"><span aria-hidden="true">🎄</span> Christmas Toy Drive <em>Nov 6 – Dec 1</em></a>
-    <a role="tab" href="#top" id="tab-home"><span aria-hidden="true">🍎</span> Snacks for Schools</a>
+    <a role="tab" href="#top" id="tab-home"><span aria-hidden="true">🍎</span> Snacks for Schools <small style="font-weight:700;opacity:.8">(Resumes January 2027)</small></a>
   </div>
 </nav>
 
@@ -939,8 +939,8 @@ footer a{font-weight:800;text-underline-offset:3px}
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <div class="dock">
-  <span>Every dollar buys snacks</span>
-  <a class="btn btn-gold js-give" href="#" target="_blank" rel="noopener">Donate</a>
+  <span>Toys for Salvation Army</span>
+  <a class="btn btn-gold js-toygive" href="#" target="_blank" rel="noopener">Donate</a>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
@@ -988,7 +988,7 @@ const TOY_START = "2026-11-06", TOY_END = "2026-12-01";
     home.hidden = onToys; toys.hidden = !onToys;
     tH.setAttribute("aria-selected", !onToys); tT.setAttribute("aria-selected", onToys);
     document.querySelectorAll(".links[data-for]").forEach(l => l.hidden = (l.dataset.for === "toys") !== onToys);
-    if (dockText) dockText.textContent = onToys ? "Toys for Salvation Army" : "Every dollar buys snacks";
+    
     document.title = onToys ? "Toy Drive · The Care Bears Cambridge" : "The Care Bears Cambridge";
     const el = id && id !== "toy-drive" && id !== "top" ? document.getElementById(id) : null;
     if (el) el.scrollIntoView(); else scrollTo(0, 0);
