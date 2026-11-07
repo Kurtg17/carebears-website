@@ -1,4 +1,4 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><meta name="description" content="The Care Bears Christmas Toy Drive: help buy new toys for Cambridge kids of every age. Every toy goes to the Cambridge Salvation Army."><meta property="og:type" content="website"><meta property="og:url" content="https://thecarebears.ca/"><meta property="og:title" content="The Care Bears Christmas Toy Drive · Cambridge"><meta property="og:description" content="Help put a gift under every Cambridge tree. Every dollar buys new toys, all given to the Cambridge Salvation Army. Donate by Dec 1."><meta property="og:image" content="https://carebears-website.pages.dev/og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="The Care Bears Christmas Toy Drive, Cambridge, Nov 6 to Dec 1"><meta name="twitter:card" content="summary_large_image"></head><body>
 <title>The Care Bears Cambridge</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -429,7 +429,7 @@ footer a{font-weight:800;text-underline-offset:3px}
 
 <nav class="nav">
   <div class="in">
-    <a class="brand" href="#top" aria-label="The Care Bears"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#bear"/></svg><span class="bt">The Care Bears</span></a>
+    <a class="brand" href="#toy-drive" aria-label="The Care Bears"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#bear"/></svg><span class="bt">The Care Bears</span></a>
     <div class="links" data-for="home">
       <a href="#story">My story</a>
       <a href="#day">The problem</a>
@@ -780,6 +780,11 @@ footer a{font-weight:800;text-underline-offset:3px}
           <p class="sub">Donate on GoFundMe and The Care Bears will buy new toys for kids of every age, then give them all to the Cambridge Salvation Army to hand out to local families this Christmas.</p>
           <div class="dates"><span>Starts Fri, Nov 6</span><span>Ends Tue, Dec 1</span></div>
           <p class="organizers">Organized by <strong>Doug Laking</strong> &amp; <strong>Steve Uba</strong></p>
+          <div class="raise" id="toy-raise" hidden style="margin-top:20px">
+            <div class="raise-top"><b id="toy-raised">$0</b><span>raised of <strong id="toy-goal"></strong> goal</span></div>
+            <div class="bar" role="progressbar" aria-label="Toy drive fundraising progress" aria-valuemin="0" aria-valuemax="100" id="toy-raise-bar"><i id="toy-bar"></i></div>
+            <small id="toy-raise-note"></small>
+          </div>
           <div class="btns" style="margin-top:20px"><a class="btn btn-gold js-toygive" href="#" target="_blank" rel="noopener">Donate to the toy drive</a></div>
         </div>
         <div class="scene-wrap">
@@ -900,7 +905,7 @@ footer a{font-weight:800;text-underline-offset:3px}
 
 <footer>
   <div class="in">
-    <a class="brand" href="#top"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#bear"/></svg>The Care Bears</a>
+    <a class="brand" href="#toy-drive"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#bear"/></svg>The Care Bears</a>
     <span class="meta">Created by Doug Laking &amp; Steve Uba · Cambridge, Ontario<br><a href="#top">Snacks for Schools</a> · <a href="#toy-drive">Christmas Toy Drive</a></span>
     <span><a href="https://www.facebook.com/share/19pQ5hTmtZ/" target="_blank" rel="noopener">Message Doug on Facebook →</a><br><a href="https://www.facebook.com/steve.uba.50" target="_blank" rel="noopener">Message Steve on Facebook →</a></span>
   </div>
@@ -925,6 +930,9 @@ const RAISED_AS_OF = "";   // e.g. "Nov 5"
 const UPDATES = [];        // e.g. [{date:"2026-11-12", title:"First drop-off!", text:"We delivered snack boxes to our first school."}]
 const SPONSORS = [];       // e.g. ["Kurtz Property Maintenance"]
 const TOY_GOFUNDME_URL = "https://gofund.me/7bbe04d25"; // toy drive GoFundMe; leave empty to use the main GoFundMe link
+const TOY_RAISED = 100;      // toy drive: copy from GoFundMe
+const TOY_GOAL = 1600;
+const TOY_RAISED_AS_OF = "Nov 7";
 const TOY_START = "2026-11-06", TOY_END = "2026-12-01";
 /* ================================================= */
 
@@ -951,7 +959,7 @@ const TOY_START = "2026-11-06", TOY_END = "2026-12-01";
   function route(){
     const toyIds = ["toy-drive","toys","toy-plan","toy-gifts","toy-share","toy-faq"];
     const id = location.hash.slice(1);
-    const onToys = toyIds.includes(id) || (id === "" ? false : !!(document.getElementById(id) && document.getElementById("page-toys").contains(document.getElementById(id))));
+    const onToys = toyIds.includes(id) || (id === "" ? true : !!(document.getElementById(id) && document.getElementById("page-toys").contains(document.getElementById(id))));
     home.hidden = onToys; toys.hidden = !onToys;
     tH.setAttribute("aria-selected", !onToys); tT.setAttribute("aria-selected", onToys);
     document.querySelectorAll(".links[data-for]").forEach(l => l.hidden = (l.dataset.for === "toys") !== onToys);
@@ -1137,6 +1145,18 @@ document.getElementById("copy-link").addEventListener("click", () => {
   } else {
     [fb, wa].forEach(a => a.addEventListener("click", e => { e.preventDefault(); say("Sharing turns on once the toy drive GoFundMe link is added."); }));
   }
+})();
+
+(function toyRaise(){
+  if (typeof TOY_RAISED !== "number" || typeof TOY_GOAL !== "number" || TOY_GOAL <= 0) return;
+  const fmt = n => "$" + Math.round(n).toLocaleString("en-CA");
+  const pct = Math.min(100, TOY_RAISED / TOY_GOAL * 100);
+  document.getElementById("toy-raised").textContent = fmt(TOY_RAISED);
+  document.getElementById("toy-goal").textContent = fmt(TOY_GOAL);
+  document.getElementById("toy-raise-bar").setAttribute("aria-valuenow", Math.round(pct));
+  document.getElementById("toy-raise-note").textContent = Math.round(pct) + "% of the way there" + (TOY_RAISED_AS_OF ? " · as of " + TOY_RAISED_AS_OF : "");
+  document.getElementById("toy-raise").hidden = false;
+  requestAnimationFrame(() => requestAnimationFrame(() => { document.getElementById("toy-bar").style.width = Math.max(pct, 2) + "%"; }));
 })();
 
 const BEAR_SVG = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><circle cx="28" cy="32" r="17" fill="#c98a4b"/><circle cx="92" cy="32" r="17" fill="#c98a4b"/><circle cx="28" cy="32" r="8" fill="#8f5a2c"/><circle cx="92" cy="32" r="8" fill="#8f5a2c"/><rect x="14" y="22" width="92" height="88" rx="44" fill="#c98a4b"/><ellipse cx="60" cy="84" rx="22" ry="16" fill="#fbe7cf"/><path d="M53 75 h14 q2 0 1 2 l-6 6 q-1 1 -2 0 l-6 -6 q-1 -2 1 -2z" fill="#2a1d14"/><path d="M38 60 q6 -7 12 0" stroke="#2a1d14" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M70 60 q6 -7 12 0" stroke="#2a1d14" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M54 90 q6 5 12 0" stroke="#2a1d14" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="32" cy="74" r="6" fill="#ff8a7a" opacity=".6"/><circle cx="88" cy="74" r="6" fill="#ff8a7a" opacity=".6"/></svg>';
