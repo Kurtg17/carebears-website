@@ -394,9 +394,9 @@ footer a{font-weight:800;text-underline-offset:3px}
 .meet .txt .label{color:#c8102e}
 .meet .txt p{color:var(--muted);font-size:19px;max-width:48ch}
 .story-photo{width:100%;max-width:360px;aspect-ratio:4/5;object-fit:cover;object-position:50% 60%;border-radius:12px;display:block}
-.sleigh{position:absolute;top:-4px;left:0;width:340px;height:auto;pointer-events:none;z-index:0;animation:fly 26s linear infinite;will-change:transform}
+.sleigh{position:absolute;top:34px;left:0;width:340px;height:auto;pointer-events:none;z-index:0;animation:fly 26s linear infinite;will-change:transform}
 @keyframes fly{0%{transform:translate(-320px,18px) rotate(-4deg)}25%{transform:translate(25vw,4px) rotate(-2deg)}50%{transform:translate(50vw,12px) rotate(0)}75%{transform:translate(75vw,0) rotate(-3deg)}100%{transform:translate(calc(100vw + 40px),-8px) rotate(-5deg)}}
-@media (max-width:700px){.sleigh{width:240px;top:4px}}
+@media (max-width:700px){.sleigh{width:240px;top:40px}}
 .lantern-glow{animation:flicker 1.8s ease-in-out infinite;transform-origin:130px 13px}
 @keyframes flicker{50%{opacity:.12}}
 @media (prefers-reduced-motion: reduce){.lantern-glow{animation:none}.sleigh{animation:none;left:auto;right:16px;transform:none}}
@@ -409,6 +409,11 @@ footer a{font-weight:800;text-underline-offset:3px}
 .sack-text .raise-top{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 8px;font-size:15px;opacity:.95}
 .sack-text .raise-top b{font-family:var(--serif);font-weight:400;font-size:38px;color:var(--gold);line-height:1}
 .sack-text small{font-size:13px;opacity:.75}
+.xlights{position:absolute;left:0;top:0;width:100%;height:44px;pointer-events:none;z-index:2;overflow:visible}
+.xlights .bulb{animation:tw 2.6s ease-in-out infinite;filter:drop-shadow(0 0 5px currentColor)}
+@keyframes tw{0%,100%{opacity:1}50%{opacity:.3;filter:none}}
+@media (prefers-reduced-motion: reduce){.xlights .bulb{animation:none}}
+.toy-hero{padding-top:104px}
 .toy-share-sec{background:var(--bg);padding-top:0}
 .xshare{position:relative;overflow:hidden;padding-top:calc(clamp(22px, 3.5vw, 32px) + 6px)}
 .xshare::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;background:repeating-linear-gradient(-45deg,#c8102e 0 12px,#fff 12px 24px)}
@@ -416,7 +421,7 @@ footer a{font-weight:800;text-underline-offset:3px}
 .toy-back{background:var(--night)}
 .toy-back a{display:inline-block;color:var(--night-ink);text-decoration:none;font-weight:800;font-size:14px;padding:14px 0;opacity:.8}
 .toy-back a:hover{opacity:1}
-.toy-hero{padding-top:64px}
+
 
 @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}.bell i,.clock .hand{animation:none}.btn,.snack,.raise .bar i,.to-top{transition:none}}
 </style>
@@ -797,6 +802,7 @@ footer a{font-weight:800;text-underline-offset:3px}
 <div id="page-toys" class="xmas" hidden>
   <section class="sec toys toy-hero" id="toys">
     <canvas class="snow" id="snow" aria-hidden="true"></canvas>
+    <svg class="xlights" id="xlights" aria-hidden="true" height="44"></svg>
     <svg class="sleigh" viewBox="0 -18 380 84" aria-hidden="true">
   <path d="M98 20 Q160 8 222 34 M98 20 Q200 2 282 28 M98 20 Q240 -4 342 22" stroke="#ffcf33" stroke-width="1.5" fill="none"/>
   <g transform="translate(190,24)"><circle cx="1" cy="11" r="3" fill="#fbe7cf"/><ellipse cx="18" cy="14" rx="18" ry="8" fill="#a46a36"/><path d="M6 20 l-8 6 M12 21 l-4 8 M26 20 l8 5 M30 19 l6 8" stroke="#a46a36" stroke-width="3" stroke-linecap="round"/><path d="M31 11 l9 -10" stroke="#a46a36" stroke-width="6" stroke-linecap="round"/><ellipse cx="43" cy="-2" rx="7.5" ry="5" fill="#a46a36"/><circle cx="50" cy="-1" r="2" fill="#2a1d14"/><path d="M40 -6 l-3 -9 M37 -11 l-5 -2 M42 -6 l4 -9 M45 -12 l4 -1" stroke="#e3c08f" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M8 8 q14 8 26 2" stroke="#c8102e" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="14" cy="11.5" r="2.4" fill="#ffcf33"/><circle cx="21" cy="12.5" r="2.4" fill="#ffcf33"/><circle cx="28" cy="11" r="2.4" fill="#ffcf33"/></g><g transform="translate(250,18)"><circle cx="1" cy="11" r="3" fill="#fbe7cf"/><ellipse cx="18" cy="14" rx="18" ry="8" fill="#a46a36"/><path d="M6 20 l-8 6 M12 21 l-4 8 M26 20 l8 5 M30 19 l6 8" stroke="#a46a36" stroke-width="3" stroke-linecap="round"/><path d="M31 11 l9 -10" stroke="#a46a36" stroke-width="6" stroke-linecap="round"/><ellipse cx="43" cy="-2" rx="7.5" ry="5" fill="#a46a36"/><circle cx="50" cy="-1" r="2" fill="#2a1d14"/><path d="M40 -6 l-3 -9 M37 -11 l-5 -2 M42 -6 l4 -9 M45 -12 l4 -1" stroke="#e3c08f" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M8 8 q14 8 26 2" stroke="#c8102e" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="14" cy="11.5" r="2.4" fill="#ffcf33"/><circle cx="21" cy="12.5" r="2.4" fill="#ffcf33"/><circle cx="28" cy="11" r="2.4" fill="#ffcf33"/></g><g transform="translate(310,12)"><circle cx="1" cy="11" r="3" fill="#fbe7cf"/><ellipse cx="18" cy="14" rx="18" ry="8" fill="#a46a36"/><path d="M6 20 l-8 6 M12 21 l-4 8 M26 20 l8 5 M30 19 l6 8" stroke="#a46a36" stroke-width="3" stroke-linecap="round"/><path d="M31 11 l9 -10" stroke="#a46a36" stroke-width="6" stroke-linecap="round"/><ellipse cx="43" cy="-2" rx="7.5" ry="5" fill="#a46a36"/><circle cx="50" cy="-1" r="2" fill="#2a1d14"/><path d="M40 -6 l-3 -9 M37 -11 l-5 -2 M42 -6 l4 -9 M45 -12 l4 -1" stroke="#e3c08f" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M8 8 q14 8 26 2" stroke="#c8102e" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="14" cy="11.5" r="2.4" fill="#ffcf33"/><circle cx="21" cy="12.5" r="2.4" fill="#ffcf33"/><circle cx="28" cy="11" r="2.4" fill="#ffcf33"/></g>
@@ -1221,6 +1227,28 @@ document.getElementById("copy-link").addEventListener("click", () => {
   } else {
     [fb, wa].forEach(a => a.addEventListener("click", e => { e.preventDefault(); say("Sharing turns on once the toy drive GoFundMe link is added."); }));
   }
+})();
+
+(function lights(){
+  const svg = document.getElementById("xlights"); if (!svg) return;
+  const NS = "http://www.w3.org/2000/svg", cols = ["#ff4b4b","#ffd84d","#3fd17a","#5ab8ff","#ff9a3c"];
+  function build(){
+    const w = svg.getBoundingClientRect().width || innerWidth; if (!w) return;
+    svg.textContent = ""; svg.setAttribute("viewBox", "0 0 " + w + " 44");
+    const step = w < 540 ? 54 : 70, n = Math.ceil(w / step);
+    let d = "";
+    for (let i = 0; i < n; i++) { const x = i * step; d += "M" + x + " 2 Q" + (x + step / 2) + " 24 " + (x + step) + " 2 "; }
+    const wire = document.createElementNS(NS, "path"); wire.setAttribute("d", d); wire.setAttribute("stroke", "#0b2219"); wire.setAttribute("stroke-width", "2"); wire.setAttribute("fill", "none"); svg.append(wire);
+    for (let i = 0; i < n; i++) {
+      const cx = i * step + step / 2, g = document.createElementNS(NS, "g");
+      const cap = document.createElementNS(NS, "rect"); cap.setAttribute("x", cx - 3.5); cap.setAttribute("y", 11); cap.setAttribute("width", 7); cap.setAttribute("height", 6); cap.setAttribute("rx", 1); cap.setAttribute("fill", "#3a4a42");
+      const b = document.createElementNS(NS, "ellipse"); b.setAttribute("cx", cx); b.setAttribute("cy", 25); b.setAttribute("rx", 6); b.setAttribute("ry", 9);
+      b.setAttribute("class", "bulb"); b.style.color = cols[i % cols.length]; b.setAttribute("fill", "currentColor"); b.style.animationDelay = ((i * 0.37) % 2.6).toFixed(2) + "s";
+      g.append(cap, b); svg.append(g);
+    }
+  }
+  build(); let t; addEventListener("resize", () => { clearTimeout(t); t = setTimeout(build, 150); });
+  addEventListener("hashchange", () => setTimeout(build, 50));
 })();
 
 (function toyRaise(){
