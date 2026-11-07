@@ -409,18 +409,6 @@ footer a{font-weight:800;text-underline-offset:3px}
 .sack-text .raise-top{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 8px;font-size:15px;opacity:.95}
 .sack-text .raise-top b{font-family:var(--serif);font-weight:400;font-size:38px;color:var(--gold);line-height:1}
 .sack-text small{font-size:13px;opacity:.75}
-.thanks-sec .head{margin-inline:auto;text-align:center;justify-items:center}
-.thanks-sec .head .label{color:#c8102e}
-.ttree{position:relative;max-width:620px;margin:0 auto;display:grid;justify-items:center}
-.ttree-star{width:46px;height:46px;margin-bottom:-6px;position:relative;z-index:2}
-.ttree-body{position:relative;width:100%;display:grid;gap:12px;padding:26px 0 30px}
-.ttree-body::before{content:"";position:absolute;inset:0;background:linear-gradient(#2a9459,#1d6b45);clip-path:polygon(50% 0,100% 100%,0 100%);z-index:0}
-.trow{position:relative;z-index:1;display:flex;justify-content:center;gap:8px;flex-wrap:nowrap}
-.orn{position:relative;display:inline-block;text-align:center;min-width:64px;max-width:130px;padding:7px 12px;border-radius:999px;font-size:13px;font-weight:800;line-height:1.1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;box-shadow:0 3px 8px rgba(0,0,0,.2)}
-.orn.c0{background:#c8102e;color:#fff}.orn.c1{background:#ffcf33;color:#16130a}.orn.c2{background:#fbf6ec;color:#1c1a17}.orn.c3{background:#3d6ab8;color:#fff}
-.orn.empty{background:rgba(255,255,255,.12);color:rgba(255,255,255,.75);box-shadow:none;border:1.5px dashed rgba(255,255,255,.45);font-weight:700}
-.ttree-trunk{width:56px;height:34px;background:#6b4226;border-radius:0 0 4px 4px}
-@media (max-width:520px){.orn{min-width:56px;max-width:92px;padding:6px 9px;font-size:12px}.trow{gap:6px}}
 .toy-share-sec{background:var(--bg);padding-top:0}
 .xshare{position:relative;overflow:hidden;padding-top:calc(clamp(22px, 3.5vw, 32px) + 6px)}
 .xshare::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;background:repeating-linear-gradient(-45deg,#c8102e 0 12px,#fff 12px 24px)}
@@ -941,17 +929,6 @@ footer a{font-weight:800;text-underline-offset:3px}
     </div>
   </section>
 
-  <section class="sec thanks-sec" id="toy-tree">
-    <div class="in">
-      <div class="head"><span class="label">Our thank-you tree</span><h2>Every donor gets an ornament</h2><p>Every person who gives gets their first name on the tree. Watch it fill up between now and Dec 1.</p></div>
-      <div class="ttree" id="ttree" aria-label="Thank-you tree of donors">
-        <svg class="ttree-star" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 2 l5 11 12 1.5 -9 8.5 2.5 12 -10.5 -6 -10.5 6 2.5 -12 -9 -8.5 12 -1.5z" fill="#ffcf33"/></svg>
-        <div class="ttree-body" id="ttree-body"></div>
-        <div class="ttree-trunk" aria-hidden="true"></div>
-      </div>
-      <p class="note" style="text-align:center">Donated and want your name on the tree? <a href="https://www.facebook.com/share/19pQ5hTmtZ/" target="_blank" rel="noopener">Message Doug</a> or <a href="https://www.facebook.com/steve.uba.50" target="_blank" rel="noopener">Steve</a>. First names only, and only if you want it.</p>
-    </div>
-  </section>
   <section class="sec toy-share-sec" id="toy-share">
     <div class="in">
       <div class="share xshare">
@@ -1032,7 +1009,6 @@ const TOY_GOFUNDME_URL = "https://gofund.me/7bbe04d25"; // toy drive GoFundMe; l
 const TOY_RAISED = 100;      // toy drive: copy from GoFundMe
 const TOY_GOAL = 3000;
 const TOY_RAISED_AS_OF = "Nov 7";
-const TOY_DONORS = [];       // thank-you tree: donors' first names, only with their OK, e.g. ["Sarah", "Mike", "The Patels"]
 const TOY_START = "2026-11-06", TOY_END = "2026-12-01";
 /* ================================================= */
 
@@ -1057,7 +1033,7 @@ const TOY_START = "2026-11-06", TOY_END = "2026-12-01";
   const dockText = document.querySelector(".dock span");
   const tH = document.getElementById("tab-home"), tT = document.getElementById("tab-toys");
   function route(){
-    const toyIds = ["toy-drive","toys","toy-plan","toy-meet","toy-gifts","toy-tree","toy-share","toy-faq"];
+    const toyIds = ["toy-drive","toys","toy-plan","toy-meet","toy-gifts","toy-share","toy-faq"];
     const id = location.hash.slice(1);
     const onToys = toyIds.includes(id) || (id === "" ? true : !!(document.getElementById(id) && document.getElementById("page-toys").contains(document.getElementById(id))));
     home.hidden = onToys; toys.hidden = !onToys;
@@ -1264,31 +1240,6 @@ document.getElementById("copy-link").addEventListener("click", () => {
     document.querySelectorAll("#toy-raise-bar .pk").forEach((g, i) => { if (pct >= +g.dataset.at) setTimeout(() => g.classList.add("on"), 900 + i * 180); });
   }));
 })();
-
-(function thankTree(){
-  const body = document.getElementById("ttree-body"); if (!body) return;
-  const names = (Array.isArray(TOY_DONORS) ? TOY_DONORS : []).map(n => String(n).trim()).filter(Boolean);
-  function build(){
-    body.textContent = "";
-    const max = innerWidth < 540 ? 4 : 6;
-    const slots = Math.max(10, names.length + 3);
-    let row = 1, i = 0;
-    while (i < slots) {
-      const r = document.createElement("div"); r.className = "trow";
-      const n = Math.min(row, max);
-      for (let k = 0; k < n && i < slots; k++, i++) {
-        const o = document.createElement("span");
-        if (i < names.length) { o.className = "orn c" + (i % 4); o.textContent = names[i]; o.title = names[i]; }
-        else { o.className = "orn empty"; o.textContent = i === names.length ? "You?" : "\u2605"; }
-        r.append(o);
-      }
-      body.append(r); row++;
-    }
-  }
-  build();
-  let w = innerWidth; addEventListener("resize", () => { if ((innerWidth < 540) !== (w < 540)) { w = innerWidth; build(); } });
-})();
-
 const BEAR_SVG = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><circle cx="28" cy="32" r="17" fill="#c98a4b"/><circle cx="92" cy="32" r="17" fill="#c98a4b"/><circle cx="28" cy="32" r="8" fill="#8f5a2c"/><circle cx="92" cy="32" r="8" fill="#8f5a2c"/><rect x="14" y="22" width="92" height="88" rx="44" fill="#c98a4b"/><ellipse cx="60" cy="84" rx="22" ry="16" fill="#fbe7cf"/><path d="M53 75 h14 q2 0 1 2 l-6 6 q-1 1 -2 0 l-6 -6 q-1 -2 1 -2z" fill="#2a1d14"/><path d="M38 60 q6 -7 12 0" stroke="#2a1d14" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M70 60 q6 -7 12 0" stroke="#2a1d14" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M54 90 q6 5 12 0" stroke="#2a1d14" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="32" cy="74" r="6" fill="#ff8a7a" opacity=".6"/><circle cx="88" cy="74" r="6" fill="#ff8a7a" opacity=".6"/></svg>';
 const bearImg = new Image();
 bearImg.src = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(BEAR_SVG);
