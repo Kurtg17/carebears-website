@@ -509,7 +509,7 @@ footer a{font-weight:800;text-underline-offset:3px}
   <div class="in">
     <span class="bell label"><i></i>8:45 AM · The bell rings</span>
     <h1>Every kid deserves a <i>full</i> school day.</h1>
-    <p class="lede">Some kids in Cambridge start class on an empty stomach. The Care Bears gets snacks into local schools so they don't have to. Started by Doug Laking and Steve Uba, funded by neighbours.</p>
+    <p class="lede">Some kids in Cambridge start class on an empty stomach. The Care Bears gets snacks into local schools so they don't have to. Started by Doug Laking, Steve Uba and Kurtis Gallant, funded by neighbours.</p>
     <div class="btns">
       <a class="btn btn-gold js-give" href="#" target="_blank" rel="noopener">Donate on GoFundMe</a>
       <a class="btn btn-line" href="#story">Read our story</a>
@@ -771,7 +771,7 @@ footer a{font-weight:800;text-underline-offset:3px}
         </div>
         <div>
           <details><summary>Why nut-free?</summary><p>Many Cambridge schools are nut-aware because of student allergies, so we buy nut-free snacks that can go to any classroom.</p></details>
-          <details><summary>Who runs this?</summary><p>The Care Bears was started by <a href="https://www.facebook.com/share/19pQ5hTmtZ/" target="_blank" rel="noopener">Doug Laking</a> and <a href="https://www.facebook.com/steve.uba.50" target="_blank" rel="noopener">Steve Uba</a>, together with people from across Cambridge.</p></details>
+          <details><summary>Who runs this?</summary><p>The Care Bears was started by <a href="https://www.facebook.com/share/19pQ5hTmtZ/" target="_blank" rel="noopener">Doug Laking</a> and <a href="https://www.facebook.com/steve.uba.50" target="_blank" rel="noopener">Steve Uba</a> and Kurtis Gallant, together with people from across Cambridge.</p></details>
           <details><summary>How do I volunteer?</summary><p>Fill in the <a href="#contact">contact sheet</a> and send it to Doug on Facebook. He'll let you know when help is needed.</p></details>
         </div>
       </div>
@@ -824,7 +824,7 @@ footer a{font-weight:800;text-underline-offset:3px}
           <h2>A gift under every <span>Cambridge tree.</span></h2>
           <p class="sub">Donate on GoFundMe and The Care Bears will buy new toys for kids of every age, then give them all to the Cambridge Salvation Army to hand out to local families this Christmas.</p>
           <div class="dates"><span>Starts Fri, Nov 6</span><span>Ends Tue, Dec 1</span></div>
-          <p class="organizers">Organized by <strong>Doug Laking</strong> &amp; <strong>Steve Uba</strong></p>
+          <p class="organizers">Organized by <strong>Doug Laking</strong>, <strong>Steve Uba</strong> &amp; <strong>Kurtis Gallant</strong></p>
           <div class="sack-wrap" id="toy-raise" hidden>
             <svg class="sack" viewBox="0 0 140 150" role="progressbar" aria-label="Santa's sack: toy drive fundraising progress" aria-valuemin="0" aria-valuemax="100" id="toy-raise-bar">
               <defs>
@@ -969,7 +969,7 @@ footer a{font-weight:800;text-underline-offset:3px}
           <details><summary>Can I drop off a toy instead?</summary><p>We're only taking donations on GoFundMe. That way we can buy the right mix of toys so every age group, especially teens, gets covered.</p></details>
         </div>
         <div>
-          <details><summary>Who's running the toy drive?</summary><p>The Care Bears Christmas Toy Drive was created by Doug Laking and Steve Uba, with help from people across Cambridge.</p></details>
+          <details><summary>Who's running the toy drive?</summary><p>The Care Bears Christmas Toy Drive was created by Doug Laking, Steve Uba and Kurtis Gallant, with help from people across Cambridge.</p></details>
           <details><summary>When does it end?</summary><p>The toy drive runs from Friday, November 6 to Tuesday, December 1. After that we shop and deliver the toys in time for Christmas.</p></details>
           <details><summary>How will I know where the money went?</summary><p>After the drive closes on Dec 1, we'll post the store receipts and photos of the toys being dropped off at the Salvation Army, here and on Facebook. <a href="https://www.facebook.com/share/19pQ5hTmtZ/" target="_blank" rel="noopener">Message Doug</a> or <a href="https://www.facebook.com/steve.uba.50" target="_blank" rel="noopener">Steve</a> any time with questions.</p></details>
         </div>
@@ -988,7 +988,7 @@ footer a{font-weight:800;text-underline-offset:3px}
 <footer>
   <div class="in">
     <a class="brand" href="#toy-drive"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#bear"/></svg>The Care Bears</a>
-    <span class="meta">Created by Doug Laking &amp; Steve Uba · Cambridge, Ontario<br><a href="#top">Snacks for Schools</a> · <a href="#toy-drive">Christmas Toy Drive</a></span>
+    <span class="meta">Created by Doug Laking, Steve Uba &amp; Kurtis Gallant · Cambridge, Ontario<br><a href="#top">Snacks for Schools</a> · <a href="#toy-drive">Christmas Toy Drive</a></span>
     <span><a href="https://www.facebook.com/share/19pQ5hTmtZ/" target="_blank" rel="noopener">Message Doug on Facebook →</a><br><a href="https://www.facebook.com/steve.uba.50" target="_blank" rel="noopener">Message Steve on Facebook →</a></span>
   </div>
 </footer>
@@ -1184,7 +1184,7 @@ if (SPONSORS.length) {
 }
 
 const msg = document.getElementById("share-text");
-msg.value = "Doug Laking, Steve Uba and our Cambridge community started The Care Bears to get snacks to kids in Cambridge schools who are going without. No kid should learn hungry. A few dollars goes a long way. Please donate on GoFundMe or share this post. Thank you, Cambridge! ❤️\n\n" + shareUrl;
+msg.value = "Doug Laking, Steve Uba, Kurtis Gallant and our Cambridge community started The Care Bears to get snacks to kids in Cambridge schools who are going without. No kid should learn hungry. A few dollars goes a long way. Please donate on GoFundMe or share this post. Thank you, Cambridge! ❤️\n\n" + shareUrl;
 function copy(text, done, field){
   if (navigator.clipboard && navigator.clipboard.writeText) {
     navigator.clipboard.writeText(text).then(() => say(done)).catch(() => fallback(field));
@@ -1216,7 +1216,7 @@ document.getElementById("copy-link").addEventListener("click", () => {
   const url = TOY_GOFUNDME_URL.startsWith("http") ? TOY_GOFUNDME_URL : (GOFUNDME_URL.startsWith("http") ? GOFUNDME_URL : "");
   const link = url || "[GoFundMe link]";
   const txt = document.getElementById("toy-share-text");
-  txt.value = "🎄 The Care Bears Christmas Toy Drive is on! Doug Laking and Steve Uba are raising money on GoFundMe to buy new toys for Cambridge kids of every age, babies to teens. Every toy goes to the Cambridge Salvation Army for local families this Christmas. Donate by Dec 1 or share this post. Thank you, Cambridge! 🎁\n\n" + link;
+  txt.value = "🎄 The Care Bears Christmas Toy Drive is on! Doug Laking, Steve Uba and Kurtis Gallant are raising money on GoFundMe to buy new toys for Cambridge kids of every age, babies to teens. Every toy goes to the Cambridge Salvation Army for local families this Christmas. Donate by Dec 1 or share this post. Thank you, Cambridge! 🎁\n\n" + link;
   document.getElementById("toy-copy-msg").addEventListener("click", () => copy(txt.value, "Message copied.", txt));
   document.getElementById("toy-copy-link").addEventListener("click", () => { if (!url) return say("The toy drive GoFundMe link hasn't been added yet."); copy(url, "Link copied."); });
   const fb = document.getElementById("toy-fb"), wa = document.getElementById("toy-wa");
